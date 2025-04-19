@@ -20,7 +20,7 @@ class OrderForm extends Component
 
     public array $invoiceProducts = [];
 
-    #[Validate('required', message: 'Please select products')]
+    #[Validate('required', message: 'Please select Spares/products')]
     public Collection $allProducts;
 
     public function mount($cartInstance): void

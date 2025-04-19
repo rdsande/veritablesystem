@@ -28,6 +28,8 @@ class Product extends Model
         'product_image',
         'category_id',
         'unit_id',
+        'model_code',       
+    'part_number',      
         'created_at',
         'updated_at'
     ];

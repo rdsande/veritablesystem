@@ -29,11 +29,14 @@
                                     {{ __('Customer Image') }}
                                 </h3>
 
-                                <img class="img-account-profile mb-2" src="{{ asset('assets/img/demo/user-placeholder.svg') }}" alt="" id="image-preview" />
+                                <img class="img-account-profile mb-2"
+                                    src="{{ asset('assets/img/demo/user-placeholder.svg') }}" alt=""
+                                    id="image-preview" />
 
                                 <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 2 MB</div>
 
-                                <input class="form-control @error('photo') is-invalid @enderror" type="file"  id="image" name="photo" accept="image/*" onchange="previewImage();">
+                                <input class="form-control @error('photo') is-invalid @enderror" type="file" id="image"
+                                    name="photo" accept="image/*" onchange="previewImage();">
 
                                 @error('photo')
                                 <div class="invalid-feedback">
@@ -53,13 +56,13 @@
 
                                 <div class="row row-cards">
                                     <div class="col-md-12">
-                                        <x-input name="name" :required="true"/>
+                                        <x-input name="name" :required="true" />
 
-                                        <x-input name="email" label="Email address" :required="true"/>
+                                        <x-input name="email" label="Email address" :required="true" />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input label="Phone Number" name="phone" :required="true"/>
+                                        <x-input label="Phone Number" name="phone" :required="true" />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
@@ -67,13 +70,12 @@
                                             Bank Name
                                         </label>
 
-                                        <select class="form-select form-control-solid @error('bank_name') is-invalid @enderror" id="bank_name" name="bank_name">
+                                        <select
+                                            class="form-select form-control-solid @error('bank_name') is-invalid @enderror"
+                                            id="bank_name" name="bank_name">
                                             <option selected="" disabled="">Select a bank:</option>
-                                            <option value="BRI" @if(old('bank_name') == 'BRI')selected="selected"@endif>BRI</option>
-                                            <option value="BNI" @if(old('bank_name') == 'BNI')selected="selected"@endif>BNI</option>
-                                            <option value="BCA" @if(old('bank_name') == 'BCA')selected="selected"@endif>BCA</option>
-                                            <option value="BSI" @if(old('bank_name') == 'BSI')selected="selected"@endif>BSI</option>
-                                            <option value="Mandiri" @if(old('bank_name') == 'Mandiri')selected="selected"@endif>Mandiri</option>
+                                            <option value="DEF" @if(old('bank_name')=='DEF' )selected="selected" @endif>
+                                                Default</option>
                                         </select>
 
                                         @error('bank_name')
@@ -97,11 +99,8 @@
                                             Address
                                         </label>
 
-                                        <textarea name="address"
-                                                  id="address"
-                                                  rows="3"
-                                                  class="form-control form-control-solid @error('address') is-invalid @enderror"
-                                            >{{ old('address') }}</textarea>
+                                        <textarea name="address" id="address" rows="3"
+                                            class="form-control form-control-solid @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
 
                                         @error('address')
                                         <div class="invalid-feedback">
@@ -130,5 +129,5 @@
 @endsection
 
 @pushonce('page-scripts')
-    <script src="{{ asset('assets/js/img-preview.js') }}"></script>
+<script src="{{ asset('assets/js/img-preview.js') }}"></script>
 @endpushonce

@@ -29,15 +29,13 @@
                                     {{ __('Profile Image') }}
                                 </h3>
 
-                                <img
-                                    class="img-account-profile mb-2"
-                                    src="{{ asset('assets/img/demo/user-placeholder.svg') }}"
-                                    id="image-preview"
-                                />
+                                <img class="img-account-profile mb-2"
+                                    src="{{ asset('assets/img/demo/user-placeholder.svg') }}" id="image-preview" />
 
                                 <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 1 MB</div>
 
-                                <input class="form-control @error('photo') is-invalid @enderror" type="file"  id="image" name="photo" accept="image/*" onchange="previewImage();">
+                                <input class="form-control @error('photo') is-invalid @enderror" type="file" id="image"
+                                    name="photo" accept="image/*" onchange="previewImage();">
 
                                 @error('photo')
                                 <div class="invalid-feedback">
@@ -72,13 +70,15 @@
                                             Type of supplier
                                         </label>
 
-                                        <select class="form-select @error('type') is-invalid @enderror" id="type" name="type">
+                                        <select class="form-select @error('type') is-invalid @enderror" id="type"
+                                            name="type">
                                             <option selected="" disabled="">Select a type:</option>
 
                                             @foreach(\App\Enums\SupplierType::cases() as $supplierType)
-                                                <option value="{{ $supplierType->value }}" @selected(old('type') == $supplierType->value)>
-                                                    {{ $supplierType->label() }}
-                                                </option>
+                                            <option value="{{ $supplierType->value }}"
+                                                @selected(old('type')==$supplierType->value)>
+                                                {{ $supplierType->label() }}
+                                            </option>
                                             @endforeach
                                         </select>
 
@@ -94,13 +94,11 @@
                                             Bank Name
                                         </label>
 
-                                        <select class="form-select @error('bank_name') is-invalid @enderror" id="bank_name" name="bank_name">
+                                        <select class="form-select @error('bank_name') is-invalid @enderror"
+                                            id="bank_name" name="bank_name">
                                             <option selected="" disabled="">Select a bank:</option>
-                                            <option value="BRI" @if(old('bank_name') == 'BRI')selected="selected"@endif>BRI</option>
-                                            <option value="BNI" @if(old('bank_name') == 'BNI')selected="selected"@endif>BNI</option>
-                                            <option value="BCA" @if(old('bank_name') == 'BCA')selected="selected"@endif>BCA</option>
-                                            <option value="BSI" @if(old('bank_name') == 'BSI')selected="selected"@endif>BSI</option>
-                                            <option value="Mandiri" @if(old('bank_name') == 'Mandiri')selected="selected"@endif>Mandiri</option>
+                                            <option value="DEF" @if(old('bank_name')=='DEF' )selected="selected" @endif>
+                                                Default</option>
                                         </select>
                                         @error('bank_name')
                                         <div class="invalid-feedback">
@@ -110,11 +108,11 @@
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input name="account_holder" label="Account holder"/>
+                                        <x-input name="account_holder" label="Account holder" />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input name="account_number" label="Account number"/>
+                                        <x-input name="account_number" label="Account number" />
                                     </div>
 
                                     <div class="col-md-12">
@@ -123,11 +121,8 @@
                                                 {{ __('Address') }}
                                             </label>
 
-                                            <textarea id="address"
-                                                      name="address"
-                                                      rows="3"
-                                                      class="form-control @error('address') is-invalid @enderror"
-                                            >{{ old('address') }}</textarea>
+                                            <textarea id="address" name="address" rows="3"
+                                                class="form-control @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
 
                                             @error('address')
                                             <div class="invalid-feedback">

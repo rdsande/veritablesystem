@@ -77,16 +77,15 @@ class PurchaseController extends Controller
             $pDetails = [];
 
             foreach ($request->invoiceProducts as $product) {
-                $pDetails['purchase_id'] = $purchase['id'];
-                $pDetails['product_id'] = $product['product_id'];
-                $pDetails['quantity'] = $product['quantity'];
-                $pDetails['unitcost'] = $product['unitcost'];
-                $pDetails['total'] = $product['total'];
-                $pDetails['created_at'] = Carbon::now();
+    $pDetails['purchase_id'] = $purchase['id'];
+    $pDetails['product_id'] = $product['product_id'];
+    $pDetails['quantity'] = $product['quantity'];
+    $pDetails['unitcost'] = str_replace(',', '', $product['unitcost']);
+    $pDetails['total'] = str_replace(',', '', $product['total']);
+    $pDetails['created_at'] = Carbon::now();
 
-                //PurchaseDetails::insert($pDetails);
-                $purchase->details()->insert($pDetails);
-            }
+    $purchase->details()->insert($pDetails);
+}
         }
 
         return redirect()
